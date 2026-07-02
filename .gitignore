@@ -1,0 +1,62 @@
+# ==========================
+# Python
+# ==========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+
+# Environment Variables
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Python cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# LangChain / Local databases (optional)
+*.db
+*.sqlite
+*.sqlite3
+
+# FAISS Vector Store (if generated locally)
+faiss_index/
+
+# ChromaDB
+chroma_db/
+
+# Temporary files
+temp/
+tmp/
