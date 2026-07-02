@@ -14,7 +14,7 @@ ENV/
 # Environment Variables
 .env
 .env.*
-
+server/node_modules
 # IDE
 .vscode/
 .idea/
