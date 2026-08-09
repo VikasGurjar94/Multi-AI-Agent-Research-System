@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+import os
 from agents import build_reader_agent, build_search_agent, writer_chain, critic_chain
 
 # ── Page config ──────────────────────────────────────────────────────────────
@@ -381,6 +382,7 @@ with col_input:
         placeholder="e.g. Quantum computing breakthroughs in 2025",
         key="topic_input",
         label_visibility="visible",
+        max_chars=200,
     )
     run_btn = st.button("⚡  Run Research Pipeline", use_container_width=True)
     st.markdown('</div>', unsafe_allow_html=True)
@@ -438,6 +440,13 @@ with col_pipeline:
 if run_btn:
     if not topic.strip():
         st.warning("Please enter a research topic first.")
+    elif missing_keys := [
+        key for key in ("MISTRAL_API_KEY", "TAVILY_API_KEY") if not os.getenv(key)
+    ]:
+        st.error(
+            "This app is not configured yet. Add "
+            f"{', '.join(missing_keys)} to Streamlit Community Cloud secrets."
+        )
     else:
         st.session_state.results = {}
         st.session_state.running = True
